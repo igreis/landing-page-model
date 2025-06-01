@@ -320,7 +320,7 @@ export default function Home() {
 
         {/* Features */}
         <section className="bg-white relative z-10 container mx-auto py-12 md:py-16 px-4 max-w-[100dvw]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600 mb-4">
                 <Star className="h-6 w-6" />
