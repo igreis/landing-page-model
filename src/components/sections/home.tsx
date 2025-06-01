@@ -1,67 +1,31 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ChevronRight, Clock, MapPin, Phone, Star, Instagram, Facebook, Twitter } from "lucide-react"
+import { Instagram, Twitter, Facebook } from "lucide-react"
+import { ChevronRight, Clock, MapPin, Phone, Star } from "lucide-react"
+import CardCardapio from "../ui/cardCardapio"
+import Header from "./header"
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/placeholder.svg?height=40&width=40"
-              alt="Pizzaria Logo"
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-            <span className="text-xl font-bold text-red-600">Pizzaria Delícia</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="#inicio" className="text-sm font-medium hover:text-red-600 transition-colors">
-              Início
-            </Link>
-            <Link href="#destaques" className="text-sm font-medium hover:text-red-600 transition-colors">
-              Destaques
-            </Link>
-            <Link href="#cardapio" className="text-sm font-medium hover:text-red-600 transition-colors">
-              Cardápio
-            </Link>
-            <Link href="#sobre" className="text-sm font-medium hover:text-red-600 transition-colors">
-              Sobre
-            </Link>
-            <Link href="#contato" className="text-sm font-medium hover:text-red-600 transition-colors">
-              Contato
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" className="hidden md:flex">
-              <Phone className="mr-2 h-4 w-4" />
-              Ligar Agora
-            </Button>
-            <Button className="bg-red-600 hover:bg-red-700">Fazer Pedido</Button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="inicio" className="relative min-h-[70dvh]">
-          <div className="absolute inset-0 bg-black/60 z-10" />
-          <div className="relative h-[500px] w-full">
-            <Image
-              src="/placeholder.svg?height=500&width=1200"
+        <section id="inicio" className=" fixed inset-0 z-0">
+          <div className="absolute inset-0">
+            <img
+              src="https://invexo.com.br/blog/wp-content/uploads/2023/01/pizza-pizzaria-jardim-oceanico-rio-de-janeiro.jpg"
               alt="Pizza Hero"
-              fill
-              className="object-cover"
-              priority
+              className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-black/60 z-10" />
           </div>
-          <div className="container mx-auto absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4">
+          <div className="container mx-auto relative z-20 flex flex-col items-center justify-center text-center text-white px-4 min-h-[70vh]">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Pizzas Artesanais <span className="text-red-500">Deliciosas</span>
             </h1>
@@ -81,8 +45,281 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="md:h-[65vh] h-[55vh]"></div>
+
+        {/* Featured Products */}
+        <section id="destaques" className="bg-gray-100 relative py-12 md:py-16 max-w-[100dvw] z-10">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="flex flex-col items-center text-center mb-10">
+              <h2 className="text-3xl font-bold tracking-tight">Pizzas em Destaque</h2>
+              <p className="mt-4 max-w-[700px] text-muted-foreground">
+                Conheça nossas pizzas mais pedidas e amadas pelos clientes.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Margherita Especial",
+                  description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                  price: 49.90,
+                  image: "https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg",
+                },
+                {
+                  name: "Pepperoni Supreme",
+                  description: "Generosa camada de pepperoni, mussarela e orégano.",
+                  price: 59.90,
+                  image: "https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg",
+                },
+                {
+                  name: "Quatro Queijos",
+                  description: "Mussarela, gorgonzola, parmesão e provolone derretidos.",
+                  price: 54.90,
+                  image: "https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg",
+                },
+              ].map((item, index) => (
+                <CardCardapio
+                  key={index}
+                  title={item.name}
+                  description={item.description}
+                  price={item.price}
+                  image={item.image}
+                />
+              ))}
+            </div>
+            <div className="flex justify-center mt-10">
+              <Button variant="outline" size="lg">
+                Ver Cardápio Completo
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Menu */}
+        <section id="cardapio" className="py-12 md:py-16 px-4 relative z-10 bg-gray-100">
+          <div className="flex flex-col items-center text-center mb-10">
+            <h2 className="text-3xl font-bold tracking-tight">Nosso Cardápio</h2>
+            <p className="mt-4 max-w-[700px] text-muted-foreground">
+              Explore nossa variedade de pizzas tradicionais e especiais, além de entradas e bebidas.
+            </p>
+          </div>
+
+          <Tabs defaultValue="pizzas" className="max-w-7xl mx-auto">
+            <TabsList className="grid w-full grid-cols-4 mb-8 max-w-md mx-auto">
+              <TabsTrigger value="pizzas">Pizzas</TabsTrigger>
+              <TabsTrigger value="pizzasDoces">Pizzas Doces</TabsTrigger>
+              <TabsTrigger value="entradas">Entradas</TabsTrigger>
+              <TabsTrigger value="bebidas">Bebidas</TabsTrigger>
+            </TabsList>
+            <TabsContent value="pizzas">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                {[
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Pepperoni",
+                    description: "Generosa camada de pepperoni, mussarela e orégano.",
+                    price: 59.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Pepperoni",
+                    description: "Generosa camada de pepperoni, mussarela e orégano.",
+                    price: 59.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  {
+                    name: "Pepperoni",
+                    description: "Generosa camada de pepperoni, mussarela e orégano.",
+                    price: 59.90,
+                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                  },
+                  // ... continue os outros
+                ].map((item, index) => (
+                  <CardCardapio
+                    key={index}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="pizzasDoces">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                {[
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Margherita",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    price: 49.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Pepperoni",
+                    description: "Generosa camada de pepperoni, mussarela e orégano.",
+                    price: 59.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Pepperoni",
+                    description: "Generosa camada de pepperoni, mussarela e orégano.",
+                    price: 59.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  {
+                    name: "Pepperoni",
+                    description: "Generosa camada de pepperoni, mussarela e orégano.",
+                    price: 59.90,
+                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                  },
+                  // ... continue os outros
+                ].map((item, index) => (
+                  <CardCardapio
+                    key={index}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="entradas">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                {[
+                  {
+                    name: "Bruschetta",
+                    description: "Fatias de pão italiano com tomate, alho, manjericão e azeite.",
+                    price: 29.90,
+                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                  },
+                  {
+                    name: "Palitos de Alho",
+                    description: "Palitos de massa com alho, parmesão e ervas.",
+                    price: 24.90,
+                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                  },
+                  {
+                    name: "Salada Caprese",
+                    description: "Tomate, mussarela de búfala, manjericão e azeite.",
+                    price: 34.90,
+                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                  },
+                  {
+                    name: "Batata Frita",
+                    description: "Porção de batatas fritas crocantes.",
+                    price: 19.90,
+                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                  },
+                ].map((item, index) => (
+                  <CardCardapio
+                    key={index}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+            <TabsContent value="bebidas">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                {[
+                  {
+                    name: "Refrigerante",
+                    description: "Lata 350ml (Coca-Cola, Guaraná, Sprite)",
+                    price: 6.90,
+                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                  },
+                  {
+                    name: "Suco Natural",
+                    description: "Copo 300ml (Laranja, Limão, Abacaxi)",
+                    price: 9.90,
+                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                  },
+                  {
+                    name: "Água Mineral",
+                    description: "Garrafa 500ml (com ou sem gás)",
+                    price: 4.90,
+                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                  },
+                  {
+                    name: "Cerveja",
+                    description: "Long neck (Heineken, Stella Artois, Corona)",
+                    price: 12.90,
+                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                  },
+                ].map((item, index) => (
+                  <CardCardapio
+                    key={index}
+                    title={item.name}
+                    description={item.description}
+                    price={item.price}
+                    image={item.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </section>
+
         {/* Features */}
-        <section className="container mx-auto py-12 md:py-16 px-4">
+        <section className="bg-white relative z-10 container mx-auto py-12 md:py-16 px-4 max-w-[100dvw]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600 mb-4">
@@ -110,199 +347,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Products */}
-        <section id="destaques" className="bg-gray-50 py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center text-center mb-10">
-              <h2 className="text-3xl font-bold tracking-tight">Pizzas em Destaque</h2>
-              <p className="mt-4 max-w-[700px] text-muted-foreground">
-                Conheça nossas pizzas mais pedidas e amadas pelos clientes.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Margherita Especial",
-                  description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
-                  price: "R$ 49,90",
-                  image: "/placeholder.svg?height=200&width=300",
-                },
-                {
-                  name: "Pepperoni Supreme",
-                  description: "Generosa camada de pepperoni, mussarela e orégano.",
-                  price: "R$ 59,90",
-                  image: "/placeholder.svg?height=200&width=300",
-                },
-                {
-                  name: "Quatro Queijos",
-                  description: "Mussarela, gorgonzola, parmesão e provolone derretidos.",
-                  price: "R$ 54,90",
-                  image: "/placeholder.svg?height=200&width=300",
-                },
-              ].map((pizza, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <div className="relative h-[200px]">
-                    <Image src={pizza.image || "/placeholder.svg"} alt={pizza.name} fill className="object-cover" />
-                    <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md text-sm font-medium">
-                      Destaque
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-bold">{pizza.name}</h3>
-                      <span className="font-bold text-red-600">{pizza.price}</span>
-                    </div>
-                    <p className="text-muted-foreground mb-4">{pizza.description}</p>
-                    <Button className="w-full bg-red-600 hover:bg-red-700">Adicionar ao Pedido</Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="flex justify-center mt-10">
-              <Button variant="outline" size="lg">
-                Ver Cardápio Completo
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Menu */}
-        <section id="cardapio" className="container mx-auto py-12 md:py-16 px-4">
-          <div className="flex flex-col items-center text-center mb-10">
-            <h2 className="text-3xl font-bold tracking-tight">Nosso Cardápio</h2>
-            <p className="mt-4 max-w-[700px] text-muted-foreground">
-              Explore nossa variedade de pizzas tradicionais e especiais, além de entradas e bebidas.
-            </p>
-          </div>
-
-          <Tabs defaultValue="pizzas" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8 max-w-md mx-auto">
-              <TabsTrigger value="pizzas">Pizzas</TabsTrigger>
-              <TabsTrigger value="entradas">Entradas</TabsTrigger>
-              <TabsTrigger value="bebidas">Bebidas</TabsTrigger>
-            </TabsList>
-            <TabsContent value="pizzas">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {[
-                  {
-                    name: "Margherita",
-                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
-                    price: "R$ 49,90",
-                  },
-                  {
-                    name: "Pepperoni",
-                    description: "Generosa camada de pepperoni, mussarela e orégano.",
-                    price: "R$ 59,90",
-                  },
-                  {
-                    name: "Quatro Queijos",
-                    description: "Mussarela, gorgonzola, parmesão e provolone derretidos.",
-                    price: "R$ 54,90",
-                  },
-                  {
-                    name: "Calabresa",
-                    description: "Calabresa fatiada, cebola, mussarela e orégano.",
-                    price: "R$ 49,90",
-                  },
-                  {
-                    name: "Portuguesa",
-                    description: "Presunto, ovos, cebola, ervilha, mussarela e orégano.",
-                    price: "R$ 54,90",
-                  },
-                  {
-                    name: "Vegetariana",
-                    description: "Brócolis, tomate, champignon, pimentão, cebola e mussarela.",
-                    price: "R$ 52,90",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex justify-between p-4 border rounded-lg">
-                    <div>
-                      <h3 className="font-bold">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </div>
-                    <div className="text-red-600 font-bold whitespace-nowrap ml-4">{item.price}</div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="entradas">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {[
-                  {
-                    name: "Bruschetta",
-                    description: "Fatias de pão italiano com tomate, alho, manjericão e azeite.",
-                    price: "R$ 29,90",
-                  },
-                  {
-                    name: "Palitos de Alho",
-                    description: "Palitos de massa com alho, parmesão e ervas.",
-                    price: "R$ 24,90",
-                  },
-                  {
-                    name: "Salada Caprese",
-                    description: "Tomate, mussarela de búfala, manjericão e azeite.",
-                    price: "R$ 34,90",
-                  },
-                  {
-                    name: "Batata Frita",
-                    description: "Porção de batatas fritas crocantes.",
-                    price: "R$ 19,90",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex justify-between p-4 border rounded-lg">
-                    <div>
-                      <h3 className="font-bold">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </div>
-                    <div className="text-red-600 font-bold whitespace-nowrap ml-4">{item.price}</div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="bebidas">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {[
-                  {
-                    name: "Refrigerante",
-                    description: "Lata 350ml (Coca-Cola, Guaraná, Sprite)",
-                    price: "R$ 6,90",
-                  },
-                  {
-                    name: "Suco Natural",
-                    description: "Copo 300ml (Laranja, Limão, Abacaxi)",
-                    price: "R$ 9,90",
-                  },
-                  {
-                    name: "Água Mineral",
-                    description: "Garrafa 500ml (com ou sem gás)",
-                    price: "R$ 4,90",
-                  },
-                  {
-                    name: "Cerveja",
-                    description: "Long neck (Heineken, Stella Artois, Corona)",
-                    price: "R$ 12,90",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex justify-between p-4 border rounded-lg">
-                    <div>
-                      <h3 className="font-bold">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </div>
-                    <div className="text-red-600 font-bold whitespace-nowrap ml-4">{item.price}</div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </section>
-
         {/* About */}
-        <section id="sobre" className="bg-gray-50 py-12 md:py-16">
-          <div className="container mx-auto px-4">
+        <section id="sobre" className="bg-gray-50 py-12 md:py-16 max-w-[100dvw] mx-auto z-10 relative">
+          <div className="container mx-auto px-4 max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="relative h-[400px] rounded-lg overflow-hidden">
-                <Image src="/placeholder.svg?height=400&width=600" alt="Nossa Pizzaria" fill className="object-cover" />
+              <div className="relative  rounded-lg overflow-hidden">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/68/9d/2d/fachada-da-nossa-pizzeria.jpg?w=900&h=500&s=1" alt="Nossa Pizzaria" className="object-cover" />
               </div>
               <div>
                 <h2 className="text-3xl font-bold tracking-tight mb-6">Nossa História</h2>
@@ -326,14 +376,14 @@ export default function Home() {
         </section>
 
         {/* Testimonials */}
-        <section className="container mx-auto py-12 md:py-16 px-4">
-          <div className="flex flex-col items-center text-center mb-10">
+        <section className="container mx-auto py-12 md:py-16 px-4 max-w-[100dvw] z-10 relative bg-white">
+          <div className="flex flex-col items-center text-center mb-10 ">
             <h2 className="text-3xl font-bold tracking-tight">O Que Nossos Clientes Dizem</h2>
             <p className="mt-4 max-w-[700px] text-muted-foreground">
               Veja as avaliações de quem já experimentou nossas deliciosas pizzas.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {[
               {
                 name: "Carlos Silva",
@@ -369,8 +419,8 @@ export default function Home() {
         </section>
 
         {/* Contact/Location */}
-        <section id="contato" className="bg-gray-50 py-12 md:py-16">
-          <div className="container mx-auto px-4">
+        <section id="contato" className="bg-gray-50 py-12 md:py-16 max-w-[100dvw] mx-auto z-10 relative">
+          <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex flex-col items-center text-center mb-10">
               <h2 className="text-3xl font-bold tracking-tight">Contato e Localização</h2>
               <p className="mt-4 max-w-[700px] text-muted-foreground">
@@ -435,8 +485,8 @@ export default function Home() {
         </section>
 
         {/* CTA */}
-        <section className="bg-red-600 text-white py-12">
-          <div className="container mx-auto text-center px-4">
+        <section className="bg-red-600 text-white py-12 max-w-[100dvw] mx-auto z-10 relative">
+          <div className="container mx-auto text-center px-4 max-w-7xl">
             <h2 className="text-3xl font-bold mb-4">Faça seu Pedido Agora!</h2>
             <p className="max-w-[600px] mx-auto mb-8">
               Experimente nossas deliciosas pizzas artesanais. Entrega rápida ou venha nos visitar!
@@ -455,7 +505,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
+      <footer className="bg-gray-900 text-gray-300 py-12 max-w-[100dvw] mx-auto z-10 relative">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -511,12 +561,7 @@ export default function Home() {
               <h3 className="text-lg font-bold text-white mb-4">Newsletter</h3>
               <p className="text-sm mb-4">Inscreva-se para receber nossas promoções e novidades.</p>
               <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Seu e-mail"
-                  className="px-3 py-2 rounded-md text-sm flex-1 text-gray-900"
-                />
-                <Button className="bg-red-600 hover:bg-red-700">Enviar</Button>
+
               </div>
             </div>
           </div>

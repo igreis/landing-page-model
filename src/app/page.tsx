@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HomeSection from "../components/sections/home";
 
 export default function Home() {
