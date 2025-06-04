@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -15,6 +17,14 @@ import entrada from '../../../public/assets/image/entrada.jpg'
 import coca from '../../../public/assets/image/coca.jpg'
 
 export default function Home() {
+
+  const handleScroll = () => {
+    const cardapioSection = document.getElementById('cardapio');
+    if (cardapioSection) {
+      cardapioSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
@@ -40,7 +50,7 @@ export default function Home() {
               feitas com amor.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700">
+              <Button onClick={handleScroll} size="lg" className="bg-red-600 hover:bg-red-700">
                 Ver Cardápio
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -110,7 +120,7 @@ export default function Home() {
             </p>
           </div>
 
-          <Tabs defaultValue="pizzas" className="max-w-5xl mx-auto">
+          <Tabs defaultValue="pizzas" className="max-w-5xl 2xl:max-w-6xl mx-auto">
             <TabsList className="grid w-full grid-cols-4 mb-8 max-w-md mx-auto">
               <TabsTrigger value="pizzas">Pizzas</TabsTrigger>
               <TabsTrigger value="pizzasDoces">Pizzas Doces</TabsTrigger>
@@ -241,7 +251,7 @@ export default function Home() {
             </TabsContent>
 
             <TabsContent value="entradas">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mx-auto">
                 {[
                   {
                     name: "Bruschetta",
@@ -279,7 +289,7 @@ export default function Home() {
               </div>
             </TabsContent>
             <TabsContent value="bebidas">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mx-auto">
                 {[
                   {
                     name: "Refrigerante",
@@ -350,7 +360,7 @@ export default function Home() {
 
         {/* About */}
         <section id="sobre" className="bg-gray-50 py-12 md:py-16 max-w-[100dvw] mx-auto z-10 relative">
-          <div className="container mx-auto px-4 max-w-6xl">
+          <div className="container mx-auto px-4 max-w-6xl 2xl:max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative  rounded-lg overflow-hidden">
                 <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/68/9d/2d/fachada-da-nossa-pizzeria.jpg?w=900&h=500&s=1" alt="Nossa Pizzaria" className="object-cover" />
@@ -421,7 +431,7 @@ export default function Home() {
 
         {/* Contact/Location */}
         <section id="contato" className="bg-gray-50 py-12 md:py-16 max-w-[100dvw] mx-auto z-10 relative">
-          <div className="container mx-auto px-4 max-w-6xl">
+          <div className="container mx-auto px-4 max-w-6xl 2xl:max-w-7xl">
             <div className="flex flex-col items-center text-center mb-10">
               <h2 className="text-3xl font-bold tracking-tight">Contato e Localização</h2>
               <p className="mt-4 max-w-[700px] text-muted-foreground">

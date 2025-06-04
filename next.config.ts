@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
-const repo = 'pizzaria-model'; // Altere para o nome do seu repositório, se for diferente
-
 const nextConfig: NextConfig = {
-  basePath: '/' + repo,
-  assetPrefix: '/' + repo + '/',
+  output: 'export',   // OBRIGATÓRIO para gerar build estático
+  images: {
+    unoptimized: true,  // Se usar next/image, precisa disso para exportar
+  },
+  basePath: '/pizzaria-model', // se o repositório NÃO for a raiz do domínio
+  assetPrefix: '/pizzaria-model/',
+
 };
 
 export default nextConfig;
