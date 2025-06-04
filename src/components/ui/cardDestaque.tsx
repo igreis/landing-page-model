@@ -12,8 +12,8 @@ interface CardProps {
 
 const cardDestaque: React.FC<CardProps> = ({ title, description, price, image }) => {
   return (
-    <div className="mx-auto min-w-50 max-w-[350px] lg:max-w-full max-h-[280px] bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-      <div className="sm:h-44 h-36 w-full overflow-hidden">
+    <div className="mx-auto min-w-50 max-w-[390px] lg:max-w-full max-h-[335px] bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+      <div className="sm:h-44 h-48 w-full overflow-hidden">
         <Image
           src={image}
           alt={title}

@@ -102,7 +102,7 @@ export default function Home() {
         </section>
 
         {/* Menu */}
-        <section id="cardapio" className="py-12 md:py-16 px-4 relative z-10 bg-gray-100">
+        <section id="cardapio" className="py-12 md:py-16 px-2 relative z-10 bg-gray-100">
           <div className="flex flex-col items-center text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight">Nosso Cardápio</h2>
             <p className="mt-4 max-w-[700px] text-muted-foreground">
@@ -118,11 +118,11 @@ export default function Home() {
               <TabsTrigger value="bebidas">Bebidas</TabsTrigger>
             </TabsList>
             <TabsContent value="pizzas">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mx-auto">
                 {[
                   {
                     name: "Margherita",
-                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
+                    description: "Molho de tomate, mussarela fresca, manjericão e azeite extra.",
                     price: 49.90,
                     image: pizza,
                   },

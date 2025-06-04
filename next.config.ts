@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
+const repo = 'pizzaria-model'; // Altere para o nome do seu repositório, se for diferente
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  basePath: '/pizzaria-model',
-  assetPrefix: '/pizzaria-model/',
+  basePath: '/' + repo,
+  assetPrefix: '/' + repo + '/',
 };
 
 export default nextConfig;
