@@ -7,6 +7,12 @@ import { Instagram, Twitter, Facebook } from "lucide-react"
 import { ChevronRight, Clock, MapPin, Phone, Star } from "lucide-react"
 import CardCardapio from "../ui/cardCardapio"
 import Header from "./header"
+import CardDestaque from "../ui/cardDestaque"
+
+import pizza from '../../../public/assets/image/pizza.webp'
+import pizzaDoce from '../../../public/assets/image/pizza doce.jpg'
+import entrada from '../../../public/assets/image/entrada.jpg'
+import coca from '../../../public/assets/image/coca.jpg'
 
 export default function Home() {
   return (
@@ -48,8 +54,8 @@ export default function Home() {
         <div className="md:h-[65vh] h-[55vh]"></div>
 
         {/* Featured Products */}
-        <section id="destaques" className="bg-gray-100 relative py-12 md:py-16 max-w-[100dvw] z-10">
-          <div className="container mx-auto px-4 max-w-7xl">
+        <section id="destaques" className="bg-gray-100 relative pb-6 pt-14 md:pt-16 max-w-[100dvw] z-10">
+          <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex flex-col items-center text-center mb-10">
               <h2 className="text-3xl font-bold tracking-tight">Pizzas em Destaque</h2>
               <p className="mt-4 max-w-[700px] text-muted-foreground">
@@ -62,22 +68,22 @@ export default function Home() {
                   name: "Margherita Especial",
                   description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                   price: 49.90,
-                  image: "https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg",
+                  image: pizza,
                 },
                 {
                   name: "Pepperoni Supreme",
                   description: "Generosa camada de pepperoni, mussarela e orégano.",
                   price: 59.90,
-                  image: "https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg",
+                  image: pizza,
                 },
                 {
                   name: "Quatro Queijos",
                   description: "Mussarela, gorgonzola, parmesão e provolone derretidos.",
                   price: 54.90,
-                  image: "https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg",
+                  image: pizza,
                 },
               ].map((item, index) => (
-                <CardCardapio
+                <CardDestaque
                   key={index}
                   title={item.name}
                   description={item.description}
@@ -104,7 +110,7 @@ export default function Home() {
             </p>
           </div>
 
-          <Tabs defaultValue="pizzas" className="max-w-7xl mx-auto">
+          <Tabs defaultValue="pizzas" className="max-w-5xl mx-auto">
             <TabsList className="grid w-full grid-cols-4 mb-8 max-w-md mx-auto">
               <TabsTrigger value="pizzas">Pizzas</TabsTrigger>
               <TabsTrigger value="pizzasDoces">Pizzas Doces</TabsTrigger>
@@ -112,55 +118,55 @@ export default function Home() {
               <TabsTrigger value="bebidas">Bebidas</TabsTrigger>
             </TabsList>
             <TabsContent value="pizzas">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
                 {[
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Pepperoni",
                     description: "Generosa camada de pepperoni, mussarela e orégano.",
                     price: 59.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Pepperoni",
                     description: "Generosa camada de pepperoni, mussarela e orégano.",
                     price: 59.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   {
                     name: "Pepperoni",
                     description: "Generosa camada de pepperoni, mussarela e orégano.",
                     price: 59.90,
-                    image: "https://images.squarespace-cdn.com/content/v1/5e6a52644e433409c3c4031e/1599840357608-0ZD5QKHTX4AJAFE57OXT/Pizza+de+Portuguesa",
+                    image: pizza,
                   },
                   // ... continue os outros
                 ].map((item, index) => (
@@ -176,56 +182,51 @@ export default function Home() {
             </TabsContent>
             
             <TabsContent value="pizzasDoces">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
                 {[
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
                   {
                     name: "Margherita",
                     description: "Molho de tomate, mussarela fresca, manjericão e azeite extra virgem.",
                     price: 49.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
                   {
                     name: "Pepperoni",
                     description: "Generosa camada de pepperoni, mussarela e orégano.",
                     price: 59.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
                   {
                     name: "Pepperoni",
                     description: "Generosa camada de pepperoni, mussarela e orégano.",
                     price: 59.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
+                    image: pizzaDoce,
                   },
-                  {
-                    name: "Pepperoni",
-                    description: "Generosa camada de pepperoni, mussarela e orégano.",
-                    price: 59.90,
-                    image: "https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sabores_de_pizza_morango_com_chocolate.jpg?itok=DlQsbz89",
-                  },
+                 
                   // ... continue os outros
                 ].map((item, index) => (
                   <CardCardapio
@@ -240,31 +241,31 @@ export default function Home() {
             </TabsContent>
 
             <TabsContent value="entradas">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
                 {[
                   {
                     name: "Bruschetta",
                     description: "Fatias de pão italiano com tomate, alho, manjericão e azeite.",
                     price: 29.90,
-                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                    image: entrada,
                   },
                   {
                     name: "Palitos de Alho",
                     description: "Palitos de massa com alho, parmesão e ervas.",
                     price: 24.90,
-                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                    image: entrada,
                   },
                   {
                     name: "Salada Caprese",
                     description: "Tomate, mussarela de búfala, manjericão e azeite.",
                     price: 34.90,
-                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                    image: entrada,
                   },
                   {
                     name: "Batata Frita",
                     description: "Porção de batatas fritas crocantes.",
                     price: 19.90,
-                    image: "https://www.minhareceita.com.br/app/uploads/2023/11/entradas-chique-portal-minha-receita.jpg",
+                    image: entrada,
                   },
                 ].map((item, index) => (
                   <CardCardapio
@@ -278,31 +279,31 @@ export default function Home() {
               </div>
             </TabsContent>
             <TabsContent value="bebidas">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-4 mx-auto">
                 {[
                   {
                     name: "Refrigerante",
                     description: "Lata 350ml (Coca-Cola, Guaraná, Sprite)",
                     price: 6.90,
-                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                    image: coca,
                   },
                   {
                     name: "Suco Natural",
                     description: "Copo 300ml (Laranja, Limão, Abacaxi)",
                     price: 9.90,
-                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                    image: coca,
                   },
                   {
                     name: "Água Mineral",
                     description: "Garrafa 500ml (com ou sem gás)",
                     price: 4.90,
-                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                    image: coca,
                   },
                   {
                     name: "Cerveja",
                     description: "Long neck (Heineken, Stella Artois, Corona)",
                     price: 12.90,
-                    image: "https://contentf5.dailynewshungary.com/wp-content/uploads/2024/07/coca-cola-fanta-drink.jpg"
+                    image: coca,
                   },
                 ].map((item, index) => (
                   <CardCardapio
@@ -320,7 +321,7 @@ export default function Home() {
 
         {/* Features */}
         <section className="bg-white relative z-10 container mx-auto py-12 md:py-16 px-4 max-w-[100dvw]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600 mb-4">
                 <Star className="h-6 w-6" />
@@ -349,7 +350,7 @@ export default function Home() {
 
         {/* About */}
         <section id="sobre" className="bg-gray-50 py-12 md:py-16 max-w-[100dvw] mx-auto z-10 relative">
-          <div className="container mx-auto px-4 max-w-7xl">
+          <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative  rounded-lg overflow-hidden">
                 <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/68/9d/2d/fachada-da-nossa-pizzeria.jpg?w=900&h=500&s=1" alt="Nossa Pizzaria" className="object-cover" />
@@ -383,7 +384,7 @@ export default function Home() {
               Veja as avaliações de quem já experimentou nossas deliciosas pizzas.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
                 name: "Carlos Silva",
@@ -420,7 +421,7 @@ export default function Home() {
 
         {/* Contact/Location */}
         <section id="contato" className="bg-gray-50 py-12 md:py-16 max-w-[100dvw] mx-auto z-10 relative">
-          <div className="container mx-auto px-4 max-w-7xl">
+          <div className="container mx-auto px-4 max-w-6xl">
             <div className="flex flex-col items-center text-center mb-10">
               <h2 className="text-3xl font-bold tracking-tight">Contato e Localização</h2>
               <p className="mt-4 max-w-[700px] text-muted-foreground">
@@ -486,7 +487,7 @@ export default function Home() {
 
         {/* CTA */}
         <section className="bg-red-600 text-white py-12 max-w-[100dvw] mx-auto z-10 relative">
-          <div className="container mx-auto text-center px-4 max-w-7xl">
+          <div className="container mx-auto text-center px-4 max-w-6xl">
             <h2 className="text-3xl font-bold mb-4">Faça seu Pedido Agora!</h2>
             <p className="max-w-[600px] mx-auto mb-8">
               Experimente nossas deliciosas pizzas artesanais. Entrega rápida ou venha nos visitar!
