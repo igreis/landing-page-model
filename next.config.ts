@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,  // Se usar next/image, precisa disso para exportar
   },
-  basePath: '/pizzaria-model', // se o repositório NÃO for a raiz do domínio
-  assetPrefix: '/pizzaria-model/',
+  basePath: '/landing-page-model', // se o repositório NÃO for a raiz do domínio
+  assetPrefix: '/landing-page-model/',
 
 };
 

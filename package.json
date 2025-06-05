@@ -9,7 +9,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "homepage": "https://igreis.github.io/pizzaria-model",
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
